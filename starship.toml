@@ -1,17 +1,27 @@
 # ~/.config/starship.toml
 
-[prompt]
-
-
-[battery]
-full_symbol = "🔋"
-charging_symbol = "🔌"
+[battery] #Displays whenever the laptop is charging, have full battery or is using the power
+full_symbol = "🔋 "
+charging_symbol = "🔌 "
 discharging_symbol = "⚡"
 
+
 [[battery.display]]
-threshold = 30
+threshold = 10
 style = "bold red"
 
+[[battery.display]]
+threshold = 25
+style = "bold orange"
+
+[[battery.display]]
+threshold = 50
+style ="bold yellow"
+
+[[battery.display]]
+threshold = 100
+style ="bold green"
+# This just shows how much power the laptop has in the terminal, the colors shows if it starting to get critical to charge the laptop
 [character]
 error_symbol = "[✗](bold #ff0000)"
 success_symbol = "[❯](bold #ea00d9)"
@@ -35,9 +45,6 @@ style = "bold yellow"
 [git_commit]
 commit_hash_length = 8
 style = "bold white"
-
-[git_state]
-progress_divider = " of "
 
 [git_status]
 conflicted = "⚔️ "
@@ -67,8 +74,6 @@ style = "bold green"
 
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
-show_percentage = true
-show_swap = true
 threshold = 50
 style = "bold dimmed white"
 disabled = false
@@ -93,5 +98,3 @@ utc_time_offset = "1"
 style_user = "bold #ea00d9"
 show_always = true
 format = "user: [$user]($style)"
-
-
